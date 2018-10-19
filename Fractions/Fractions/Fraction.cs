@@ -26,7 +26,7 @@
                 chars.Contains('*') ||
                 chars.Contains('+'))
             {
-                throw new ArgumentException("Invalid operand.Ensure operands and operators are seperated by one or more spaces.", "operand");
+                throw new ArgumentException($"Invalid operand.Ensure operands and operators are seperated by one or more spaces. Operand:{operand}");
             }
            
 
