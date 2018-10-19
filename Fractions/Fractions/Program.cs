@@ -17,17 +17,24 @@ namespace Fractions
             string[] input = new string[0];
             do
             {
-                Console.Write("? ");
-                input = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (input.Length >= 3)
+                try
                 {
-                    Evaluator evaluator = new Evaluator(input);
-                    Console.WriteLine("= " + evaluator.Evaluate());
-                    Console.WriteLine();
+                    Console.Write("? ");
+                    input = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (input.Length >= 3)
+                    {
+                        Evaluator evaluator = new Evaluator(input);
+                        Console.WriteLine("= " + evaluator.Evaluate());
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Ensure the input is properly formatted according to the given instruction above.");
+                    }
                 }
-                else
+                catch(Exception e)
                 {
-                    Console.WriteLine("Invalid input. Ensure the input is properly formatted according to the given instruction above.");
+                    Console.WriteLine(e.Message);
                 }
             }
             while (input.Length > 0);            
