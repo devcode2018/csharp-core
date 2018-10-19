@@ -91,7 +91,7 @@
                     return a.Subtract(b);
                 case "/":
                     return a.Divide(b);
-                default: throw new ArgumentException("Invalid operator");
+                default: throw new ArgumentException($"Invalid operator.Operator: {ops}");
             }
         }
     }

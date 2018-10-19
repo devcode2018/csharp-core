@@ -17,7 +17,7 @@
         /// <param name="operand"></param>
         public Fraction(string operand)
         {
-            if (string.IsNullOrWhiteSpace(operand)) throw new ArgumentException("Invalid operand.", "operand");
+            if (string.IsNullOrWhiteSpace(operand)) throw new ArgumentException($"Invalid operand.Operand:{operand}");
             operand.Trim();
 
             HashSet<char> chars = new HashSet<char>(operand.ToArray());
@@ -53,7 +53,7 @@
             {
                 //Its a whole number
                 this.Numerator = int.Parse(operand);
-                if(this.Numerator == 0) throw new ArgumentException("Invalid operand.");
+                if(this.Numerator == 0) throw new ArgumentException($"Invalid operand.Operand:{operand}");
                 this.Denominator = 1;
             }
         }
@@ -65,8 +65,8 @@
         /// <returns></returns>
         public Fraction Add(Fraction b)
         {
-            if (b == null) throw new ArgumentNullException("One of the operand or fraction cannot be null.");
-            if(Denominator == 0 || b.Denominator == 0) throw new ArgumentException("Invalid denominator.");
+            if (b == null) throw new ArgumentNullException("One of the operand or fraction cannot be null.","b");
+            if(Denominator == 0 || b.Denominator == 0) throw new ArgumentException($"One of the denominators is invalid.Denominator:{Denominator} or {b.Denominator}");
 
             int commonDenominator = LCD(Denominator, b.Denominator);
 
@@ -88,8 +88,8 @@
         /// <returns></returns>
         public Fraction Subtract(Fraction b)
         {
-            if (b == null) throw new ArgumentNullException("One of the operand or fraction cannot be null.");
-            if (Denominator == 0 || b.Denominator == 0) throw new ArgumentException("Invalid denominator.");
+            if (b == null) throw new ArgumentNullException("One of the operand or fraction cannot be null.","b");
+            if (Denominator == 0 || b.Denominator == 0) throw new ArgumentException($"One of the denominators is invalid.Denominator:{Denominator} or {b.Denominator}");
 
             int commonDenominator = LCD(Denominator, b.Denominator);
 
@@ -111,8 +111,8 @@
         /// <returns></returns>
         public Fraction Multiply(Fraction b)
         {
-            if (b == null) throw new ArgumentNullException("One of the operand or fraction cannot be null.");
-            if (Denominator == 0 || b.Denominator == 0) throw new ArgumentException("Invalid denominator.");
+            if (b == null) throw new ArgumentNullException("One of the operand or fraction cannot be null.","b");
+            if (Denominator == 0 || b.Denominator == 0) throw new ArgumentException($"One of the denominators is invalid.Denominator:{Denominator} or {b.Denominator}");
 
             Fraction product = new Fraction
             {
@@ -131,7 +131,7 @@
         public Fraction Divide(Fraction b)
         {
             if (b == null) throw new ArgumentNullException("One of the operand or fraction cannot be null.");
-            if (this.Denominator == 0 || b.Denominator == 0) throw new ArgumentException("Invalid denominator.");
+            if (this.Denominator == 0 || b.Denominator == 0) throw new ArgumentException($"One of the denominators is invalid.Denominator:{this.Denominator} or {b.Denominator}");
             
             int sign = (this.Numerator < 0 ? -1 : 1) * (b.Numerator < 0 ? -1 : 1);
             Fraction result = new Fraction
@@ -144,7 +144,7 @@
                 
         public override string ToString()
         {
-            if(this.Denominator == 0) throw new ArgumentException("Invalid denominator.");
+            if(this.Denominator == 0) throw new ArgumentException($"Invalid denominator.Denominator:{this.Denominator}");
 
             int wholePart = this.Numerator / this.Denominator;
             int remainder = this.Numerator % this.Denominator;
