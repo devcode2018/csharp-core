@@ -45,7 +45,7 @@
         {
             Fraction a = new Fraction("3");
             string result = a.Add(new Fraction("2")).ToString();
-            Assert.AreEqual(result, "5/1");
+            Assert.AreEqual(result, "5");
         }
         #endregion
 
@@ -137,7 +137,7 @@
         {
             Fraction a = new Fraction("4");
             string result = a.Multiply(new Fraction("3")).ToString();
-            Assert.AreEqual(result, "12/1");
+            Assert.AreEqual(result, "12");
         }
         #endregion
 
@@ -147,7 +147,7 @@
         {
             Fraction a = new Fraction("1/2");
             string result = a.Divide(new Fraction("1/6")).ToString();
-            Assert.AreEqual(result, "3/1");
+            Assert.AreEqual(result, "3");
         }
 
         [TestMethod]
@@ -163,7 +163,7 @@
         {
             Fraction a = new Fraction("3");
             string result = a.Divide(new Fraction("-1/4")).ToString();
-            Assert.AreEqual(result, "-12/1");
+            Assert.AreEqual(result, "-12");
         }
 
         [ExpectedException(typeof(ArgumentException))]
@@ -195,7 +195,7 @@
         {
             Fraction a = new Fraction("0/3");
             string result = a.Divide(new Fraction("3")).ToString();
-            Assert.AreEqual(result, "0/1");
+            Assert.AreEqual(result, "0");
         }
         #endregion
     }

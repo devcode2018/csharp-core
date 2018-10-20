@@ -152,7 +152,7 @@
             {
                 return wholePart + "_" + (wholePart < 0 ? remainder * -1 : remainder) + "/" + this.Denominator;
             }
-            return this.Numerator + "/" + this.Denominator;
+            return this.Denominator == 1 ? this.Numerator.ToString() : this.Numerator + "/" + this.Denominator;
         }
 
         /// <summary>
