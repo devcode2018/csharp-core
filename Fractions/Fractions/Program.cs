@@ -21,7 +21,6 @@ namespace Fractions
                 {
                     Console.Write("? ");
                     input = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                    string s = string.Join(",", null);
                     if (input.Length >= 3)
                     {
                         Evaluator evaluator = new Evaluator(input);
