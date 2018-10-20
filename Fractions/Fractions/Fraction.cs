@@ -9,7 +9,7 @@
         public int Numerator { get; set; }
         public int Denominator { get; set; }
 
-        public Fraction() { }
+        private Fraction() { }
 
         /// <summary>
         /// constructor: extracts the numerator and denominator from a given operand.

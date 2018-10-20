@@ -6,6 +6,8 @@
     public class Evaluator
     {
         private string[] tokens;
+        private Evaluator() { }
+
         public Evaluator(string[] tokens)
         {
             if (tokens == null || tokens.Length < 3) throw new ArgumentException("Invalid input", "tokens");
@@ -13,7 +15,7 @@
         }
 
         /// <summary>
-        /// Evaluates a given expression(operations on operand and operators) 
+        /// Evaluates a given expression(operations on fractions and/or whole numbers) 
         /// </summary>
         /// <returns></returns>
         public string Evaluate()
